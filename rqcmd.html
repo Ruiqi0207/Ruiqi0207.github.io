@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RQcmd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            color: #0f0;
+            font-family: monospace;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #output {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .input-line {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: black;
+            border-top: 1px solid #0f0;
+        }
+
+        .prompt {
+            color: inherit;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        #commandInput {
+            background: transparent;
+            border: none;
+            color: inherit;
+            font-family: monospace;
+            font-size: 14px;
+            flex: 1;
+            outline: none;
+        }
+
+        .debug-mode * {
+            outline: 1px solid rgba(255, 0, 0, 0.5) !important;
+            background: rgba(255, 0, 0, 0.05) !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="output">
+        <div>欢迎使用 RQcmd！</div>
+        <div>> 输入 help 查看命令</div>
+    </div>
+    <div class="input-line">
+        <span class="prompt">$</span>
+        <input type="text" id="commandInput" placeholder="输入命令" autofocus>
+    </div>
+
+    <script>
+        const outputDiv = document.getElementById('output');
+        const commandInput = document.getElementById('commandInput');
+
+        // 背景色定义
+        const bgColors = {
+            '黑': '#000000',
+            '绿': '#0a2f0a',
+            '蓝': '#0a2f6a',
+            '红': '#6a0a0a',
+            '紫': '#4a0a6a',
+            '灰': '#2a2a2a'
+        };
+
+        // 前景色定义（文字颜色）
+        const fgColors = {
+            '绿': '#0f0',
+            '红': '#f00',
+            '蓝': '#0af',
+            '黄': '#ff0',
+            '青': '#0ff',
+            '紫': '#f0f',
+            '白': '#fff'
+        };
+
+        function printLine(text) {
+            const line = document.createElement('div');
+            line.textContent = '> ' + text;
+            outputDiv.appendChild(line);
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+        }
+
+        function setBackgroundColor(colorName) {
+            const colorHex = bgColors[colorName];
+            if (colorHex) {
+                document.body.style.background = colorHex;
+                printLine(`背景已更换：${colorName}`);
+                return true;
+            }
+            return false;
+        }
+
+        function setForegroundColor(colorName) {
+            const colorHex = fgColors[colorName];
+            if (colorHex) {
+                document.body.style.color = colorHex;
+                printLine(`文字颜色已更换：${colorName}`);
+                return true;
+            }
+            return false;
+        }
+
+        function getSystemInfo() {
+            const info = [
+                '=== 系统信息 ===',
+                `浏览器: ${navigator.userAgent.split(' ').slice(0, 3).join(' ')}`,
+                `平台: ${navigator.platform}`,
+                `语言: ${navigator.language}`,
+                `屏幕: ${screen.width}x${screen.height}`,
+                `色彩深度: ${screen.colorDepth}位`,
+                `在线: ${navigator.onLine ? '在线' : '离线'}`,
+                `时间: ${new Date().toLocaleString()}`
+            ];
+            info.forEach(printLine);
+        }
+
+        function handleCommand(cmd) {
+            cmd = cmd.trim().toLowerCase();
+            if (cmd === '') return;
+
+            printLine(`$ ${cmd}`);
+
+            // 帮助
+            if (cmd === 'help') {
+                printLine('可用命令：');
+                printLine('  help       - 显示帮助');
+                printLine('  clear      - 清屏');
+                printLine('  time       - 显示当前时间');
+                printLine('  hello      - 打个招呼');
+                printLine('  bing       - 打开必应');
+                printLine('  baidu      - 打开百度');
+                printLine('  douyin     - 打开抖音');
+                printLine('  weixin     - 打开微信网页版');
+                printLine('  battery    - 查看电量');
+                printLine('  calc       - 计算器 (如: calc 3+5)');
+                printLine('  echo       - 重复输入 (如: echo 你好)');
+                printLine('  rqbrowser  - 打开网址 (如: rqbrowser https://bing.com)');
+                printLine('  systeminfo - 查看系统信息');
+                printLine('  debug      - 开启调试模式');
+                printLine('  undebug    - 关闭调试模式');
+                printLine('  color      - 更改文字颜色 (如: color 绿)');
+                printLine('  bg黑/绿/蓝/红/紫/灰 - 更换背景');
+                printLine('  bg恢复     - 恢复黑色背景');
+                return;
+            }
+
+            // 清屏
+            if (cmd === 'clear') {
+                outputDiv.innerHTML = '';
+                return;
+            }
+
+            // 时间
+            if (cmd === 'time') {
+                printLine(new Date().toLocaleString());
+                return;
+            }
+
+            // 打招呼
+            if (cmd === 'hello') {
+                printLine('你好！欢迎使用 RQcmd');
+                return;
+            }
+
+            // 打开网页
+            if (cmd === 'bing') {
+                window.open('https://bing.com', '_blank');
+                printLine('正在打开必应...');
+                return;
+            }
+            if (cmd === 'baidu') {
+                window.open('https://baidu.com', '_blank');
+                printLine('正在打开百度...');
+                return;
+            }
+            if (cmd === 'douyin') {
+                window.open('https://douyin.com', '_blank');
+                printLine('正在打开抖音...');
+                return;
+            }
+            if (cmd === 'weixin') {
+                window.open('https://wx.qq.com', '_blank');
+                printLine('正在打开微信网页版...');
+                return;
+            }
+
+            // 电量
+            if (cmd === 'battery') {
+                if ('getBattery' in navigator) {
+                    navigator.getBattery().then(b => {
+                        printLine(`当前电量：${Math.round(b.level * 100)}%`);
+                        printLine(`充电状态：${b.charging ? '充电中' : '未充电'}`);
+                    });
+                } else {
+                    printLine('您的浏览器不支持电量查询');
+                }
+                return;
+            }
+
+            // 回显（echo 命令）
+            if (cmd.startsWith('echo ')) {
+                printLine(cmd.substring(5));
+                return;
+            }
+            if (cmd === 'echo') {
+                printLine('');
+                return;
+            }
+
+            // 自定义浏览器（rqbrowser 命令 + 网址）
+            if (cmd.startsWith('rqbrowser ')) {
+                let url = cmd.substring(10).trim();
+                if (!url.startsWith('http')) {
+                    url = 'https://' + url;
+                }
+                window.open(url, '_blank');
+                printLine(`打开 ${url}`);
+                return;
+            }
+            if (cmd === 'rqbrowser') {
+                printLine('用法: rqbrowser <网址>');
+                printLine('示例: rqbrowser https://bing.com');
+                return;
+            }
+
+            // 系统信息
+            if (cmd === 'systeminfo') {
+                getSystemInfo();
+                return;
+            }
+
+            // 调试模式
+            if (cmd === 'debug') {
+                document.body.classList.add('debug-mode');
+                printLine('✅ 调试模式已开启');
+                return;
+            }
+            if (cmd === 'undebug') {
+                document.body.classList.remove('debug-mode');
+                printLine('❌ 调试模式已关闭');
+                return;
+            }
+
+            // 颜色控制（前景色）
+            if (cmd.startsWith('color ')) {
+                let colorName = cmd.substring(6).trim();
+                if (fgColors[colorName]) {
+                    setForegroundColor(colorName);
+                } else {
+                    printLine('可用颜色：绿、红、蓝、黄、青、紫、白');
+                }
+                return;
+            }
+            if (cmd === 'color') {
+                printLine('用法: color <颜色名>');
+                printLine('可用颜色：绿、红、蓝、黄、青、紫、白');
+                return;
+            }
+
+            // 背景色控制
+            if (cmd === 'bg黑') { setBackgroundColor('黑'); return; }
+            if (cmd === 'bg绿') { setBackgroundColor('绿'); return; }
+            if (cmd === 'bg蓝') { setBackgroundColor('蓝'); return; }
+            if (cmd === 'bg红') { setBackgroundColor('红'); return; }
+            if (cmd === 'bg紫') { setBackgroundColor('紫'); return; }
+            if (cmd === 'bg灰') { setBackgroundColor('灰'); return; }
+            if (cmd === 'bg恢复') {
+                document.body.style.background = 'black';
+                printLine('已恢复黑色背景');
+                return;
+            }
+
+            // 计算器
+            if (cmd.startsWith('calc ')) {
+                try {
+                    const expr = cmd.substring(5);
+                    const result = eval(expr);
+                    printLine(`= ${result}`);
+                } catch {
+                    printLine('计算错误，请检查表达式');
+                }
+                return;
+            }
+
+            // 未知命令
+            printLine('未知命令');
+            printLine('输入 help 查看可用命令');
+        }
+
+        commandInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleCommand(commandInput.value);
+                commandInput.value = '';
+            }
+        });
+
+        commandInput.focus();
+    </script>
+</body>
+</html>
