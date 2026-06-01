@@ -8,12 +8,20 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- RQcmd 页面 -->
+  <!-- RQcmd 主页面 -->
   <url>
     <loc>https://ruiqi0207.github.io/rqcmd.html</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- RQcmd 宣传页 -->
+  <url>
+    <loc>https://ruiqi0207.github.io/rqcmd.Blurb.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- 丧尸攻城 游戏页面 -->
