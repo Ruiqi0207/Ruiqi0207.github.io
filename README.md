@@ -1,39 +1,22 @@
-# ruiqi-web
+# 锐祺官网
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+锐祺的个人作品集网站，包含产品介绍、游戏展示等内容。
 
-#### 软件架构
-软件架构说明
+## 页面
+- [首页](https://ruiqi0207.github.io/)
+- [RQcmd](https://ruiqi0207.github.io/rqcmd.html)
+- [丧尸攻城](https://ruiqi0207.github.io/game.html)
 
+## 关于
+本网站所有项目均为个人独立开发，仅供学习交流使用。
 
-#### 安装教程
+## 隐私
+本网站为纯静态页面，不收集任何用户个人信息。
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 联系方式
+- 邮箱：ruiqi020715@163.com
+- 微博：（请自行填写）
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## 技术栈
+- HTML / CSS / JavaScript
+- GitHub Pages
