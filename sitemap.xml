@@ -8,6 +8,12 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://ruiqi0207.github.io/index_en.html</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priorty>
+
   <!-- RQcmd 主页面 -->
   <url>
     <loc>https://ruiqi0207.github.io/rqcmd.html</loc>
