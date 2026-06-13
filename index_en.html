@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+      <style>
+            .dark-bg {
+                background-color: black;
+            }
+            .dark-b {
+                 background-color: lightblue;
+            }
+            /* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 去除微信点击灰色遮罩 */
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0f1c 0%, #0f172a 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #e2e8f0;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+/* 容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 头部 */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.avatar {
+    font-size: 5rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.bio {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+/* 作品网格 */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* 卡片 */
+.card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(71, 85, 105, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.3);
+    border-color: rgba(96, 165, 250, 0.4);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: #1e293b;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    color: #94a3b8;
+    letter-spacing: 0.3px;
+}
+
+.card-desc {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+.card-link {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.card-link:hover {
+    background: #2563eb;
+}
+
+/* 底部 */
+.footer {
+    text-align: center;
+    border-top: 1px solid #1e293b;
+    padding-top: 2rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin: 0 0.75rem;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #60a5fa;
+}
+
+/* 微信专用：图片无边框 */
+img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 按钮、链接统一去掉焦点框 */
+button, a {
+    outline: none;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+    body {
+        padding: 1rem;
+    }
+    .header {
+        margin-bottom: 2rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .avatar {
+        font-size: 3.5rem;
+    }
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .card {
+        padding: 1.2rem;
+    }
+    .card-title {
+        font-size: 1.3rem;
+    }
+}
+      </style>       
+      <title>Ruiqi Official Website</title>
+      <meta charset="utf-8">
+      <meta name="description" content="Ruiqi锐祺的官方网站">
+      <meta name="keywords" content="Ruiqi,锐祺官网,锐祺,RQcmd">
+      <meta name="author" content="Ruiqi(15860160743@163.com)">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" type="image/png" href="/favicon.png">
+    </head>
+    <body class="dark-bg">
+      <a href="/" style="color:white;text-decoration:none">点击切换中文</a>
+      <h1 style="color:aqua;text-align:center">Ruiqi Official Website</h1>
+      <p style="color:blue;">All products and projects are independently developed by this developer and have no relationship with any other developers, and do not cause infringement.</p>
+      <div class="dark-b">                                                                                                           
+        <h2></h2>                                                                                                   
+        <h3>RQcmd: A simple command line tool that can view system settings/status and supports some bash commands</h3>                                                           
+        <p><a href="/html/rqcmd.html" style="text-decoration:none;color:azure"><img src="在线体验.jpg" alt="RQcmd在线体验按钮" width="150"></a></p>                                 
+        <p><a href="/Releases/RQcmd_1.0.0.apk" style="text-decoration: none;color:azure"><img src="下载.jpg" alt="RQcmd下载按钮" width="150"></a></p>
+        <p><a href="/html/rqcmd.Blurb.html" style="text-decoration:none;color:azure"><img src="查看详情.jpg" alt="RQcmd详情" width="150"></a></p>
+        <p><a href="https://raw.githubusercontent.com/Ruiqi0207/Ruiqi0207.github.io/refs/heads/main/html/rqcmd.html" style="text-decoration:none;color:azure"><img src="查看源码.jpg" alt="RQcmd源码" width="150"></a></p>
+      </div>
+      <small style="opacity:0.5;text-align:center;color:#9ca3af;">© Ruiqi</small>
+                                                                                                                                                                                                                                                         </body>
+                                                                                                                                                                                                                                                     </html>
