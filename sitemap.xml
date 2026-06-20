@@ -17,7 +17,7 @@
 
   <!-- RQcmd 主页面 -->
   <url>
-    <loc>https://ruiqi0207.github.io/rqcmd.html</loc>
+    <loc>https://ruiqi0207.github.io/RQcmd</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -25,7 +25,7 @@
 
   <!-- RQcmd 宣传页 -->
   <url>
-    <loc>https://ruiqi0207.github.io/rqcmd.Blurb.html</loc>
+    <loc>https://ruiqi0207.github.io/RQcmd/Blurb.html</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -33,7 +33,7 @@
 
   <!-- 丧尸攻城 游戏页面 -->
   <url>
-    <loc>https://ruiqi0207.github.io/game.html</loc>
+    <loc>https://ruiqi0207.github.io/game</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
