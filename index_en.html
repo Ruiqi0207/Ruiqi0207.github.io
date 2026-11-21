@@ -26,6 +26,7 @@ body {
     line-height: 1.5;
     min-height: 100vh;
     padding: 2rem 1rem;
+    -webkit-text-size-adjust: 100%;
 }
 /* 容器 */
 .container {
@@ -49,6 +50,7 @@ h1 {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
 }
 .bio {
@@ -145,6 +147,10 @@ img {
 button, a {
     outline: none;
 }
+button:focus-visible, a:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+}
 /* 响应式 */
 @media (max-width: 640px) {
     body {
@@ -177,6 +183,15 @@ button, a {
       .dark-b, .dark-c, .black { padding: 0.75rem 1rem 1rem; margin-bottom: 1.5rem; }
       .dark-b a, .dark-c a, .black a { transition: opacity .2s ease; }
       .dark-b a:hover, .dark-c a:hover, .black a:hover { opacity: .85; }
+
+      @supports (min-height: 100dvh) {
+        body { min-height: 100dvh; }
+      }
+
+      /* 触屏上点完卡片会一直保持浮起，这里把悬停效果限定给有指针的设备 */
+      @media (hover: none) {
+        .card:hover { transform: none; box-shadow: none; border-color: rgba(71, 85, 105, 0.4); }
+      }
     </style>
       <title>Ruiqi Official Website</title>
       <meta charset="utf-8">
